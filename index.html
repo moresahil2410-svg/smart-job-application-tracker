@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobTrack | Smart Job Application Tracker</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <div class="brand">
+                <h1>JobTrack</h1>
+                <p class="subtitle">Smart Job Application Tracker</p>
+            </div>
+            <nav aria-label="Main Navigation">
+                <ul>
+                    <li><a href="#dashboard">Dashboard</a></li>
+                    <li><a href="#applications">Applications</a></li>
+                    <li><a href="#add-job">Add Job</a></li>
+                </ul>
+            </nav>
+            <button id="themeToggleBtn" type="button" aria-label="Toggle theme">Toggle Theme</button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Dashboard Section -->
+        <section id="dashboard" aria-labelledby="dashboard-heading">
+            <h2 id="dashboard-heading">Dashboard</h2>
+            <p class="description">Track and manage your job applications and interview pipeline efficiently.</p>
+            
+            <div class="stats-grid">
+                <article class="stat-card">
+                    <h3>Total Applications</h3>
+                    <p id="statTotal" class="stat-number">0</p>
+                </article>
+                <article class="stat-card">
+                    <h3>Applied</h3>
+                    <p id="statApplied" class="stat-number">0</p>
+                </article>
+                <article class="stat-card">
+                    <h3>Interview</h3>
+                    <p id="statInterview" class="stat-number">0</p>
+                </article>
+                <article class="stat-card">
+                    <h3>Selected</h3>
+                    <p id="statSelected" class="stat-number">0</p>
+                </article>
+                <article class="stat-card">
+                    <h3>Rejected</h3>
+                    <p id="statRejected" class="stat-number">0</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Add Job Application Section -->
+        <section id="add-job" aria-labelledby="add-job-heading">
+            <h2 id="add-job-heading">Add Job Application</h2>
+            <form id="jobForm">
+                <div class="form-group">
+                    <label for="companyName">Company Name *</label>
+                    <input type="text" id="companyName" name="companyName" required placeholder="e.g. Acme Corp">
+                </div>
+
+                <div class="form-group">
+                    <label for="jobRole">Job Role *</label>
+                    <input type="text" id="jobRole" name="jobRole" required placeholder="e.g. Frontend Engineer">
+                </div>
+
+                <div class="form-group">
+                    <label for="location">Location *</label>
+                    <input type="text" id="location" name="location" required placeholder="e.g. Remote / New York, NY">
+                </div>
+
+                <div class="form-group">
+                    <label for="salary">Salary</label>
+                    <input type="text" id="salary" name="salary" placeholder="e.g. $120,000 / year">
+                </div>
+
+                <div class="form-group">
+                    <label for="applicationDate">Application Date *</label>
+                    <input type="date" id="applicationDate" name="applicationDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="status">Status *</label>
+                    <select id="status" name="status" required>
+                        <option value="Applied">Applied</option>
+                        <option value="Interview">Interview</option>
+                        <option value="Selected">Selected</option>
+                        <option value="Rejected">Rejected</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="jobUrl">Job URL</label>
+                    <input type="url" id="jobUrl" name="jobUrl" placeholder="https://example.com/job-post">
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">Notes</label>
+                    <textarea id="notes" name="notes" rows="4" placeholder="Additional details or follow-up notes..."></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" id="submitBtn">Add Application</button>
+                    <button type="reset" id="cancelBtn">Cancel</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Applications Section -->
+        <section id="applications" aria-labelledby="applications-heading">
+            <h2 id="applications-heading">Applications</h2>
+
+            <div class="controls-bar">
+                <div class="search-group">
+                    <label for="searchInput">Search Applications</label>
+                    <input type="search" id="searchInput" placeholder="Search applications..." aria-label="Search applications">
+                </div>
+
+                <div class="filter-group">
+                    <label for="statusFilter">Filter by Status</label>
+                    <select id="statusFilter" aria-label="Filter by status">
+                        <option value="All">All</option>
+                        <option value="Applied">Applied</option>
+                        <option value="Interview">Interview</option>
+                        <option value="Selected">Selected</option>
+                        <option value="Rejected">Rejected</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Dynamic Applications Container -->
+            <div id="applicationsContainer">
+                <!-- Initial Empty State -->
+                <div id="emptyState" class="empty-state">
+                    <p class="empty-title">No job applications yet.</p>
+                    <p class="empty-subtitle">Add your first application to start tracking your job search.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="toast-container" role="status" aria-live="polite"></div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
